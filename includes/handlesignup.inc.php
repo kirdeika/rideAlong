@@ -62,5 +62,6 @@ if(isset($_POST["signup-submit"])) {
     mysqli_close($conn);
     
 } else {
-    echo 'YOU ARE NOT ALLOWED HERE';
+    header("Location: ../signup.php");
+    exit();
 }
