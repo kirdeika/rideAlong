@@ -29,7 +29,7 @@ if(isset($_POST['login-submit'])) {
                 } elseif($passCheck) {  //Login success
                     session_start();
                     $_SESSION['userId'] = $row['id'];
-                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['userUsername'] = $row['username'];
 
                     header("Location: ../index.php?login=success");
                     exit();

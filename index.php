@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -8,12 +9,13 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="manifest" href="site.webmanifest">
+  <!-- <link rel="manifest" href="site.webmanifest"> -->
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css"> -->
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -24,13 +26,21 @@
 <h1>RideAlong</h1>
 
 <?php
-  require 'login.php';
+  if(isset($_SESSION['userId'])) {
+    echo '<p>You are now logged in!</p>';
+    require 'logout.php';
+  } else {
+    require 'login.php';
+  }
 ?>
+
+<p><a href="#signup" id="register-link">New user? Click here</a></p>
 
 <?php
   require 'signup.php';
 ?>
 
+<script src="js/index.js"></script>
 </body>
 
 </html>
