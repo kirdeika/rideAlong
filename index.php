@@ -25,19 +25,19 @@
 
 <h1>RideAlong</h1>
 
-<?php
-  if(isset($_SESSION['userId'])) {
-    echo '<p>You are now logged in!</p>';
-    require 'logout.php';
+<?php 
+  if(!isset($_SESSION['userId'])) {
+    header("Location: ./login.php");
   } else {
-    require 'login.php';
+
+    if(isset($_GET['login'])) {
+      if($_GET['login']  == "success")
+        echo "You logged in successfully";
+    }
+
+    require 'mainpage.php';
+    require 'logout.php'; 
   }
-?>
-
-<p><a href="#signup" id="register-link">New user? Click here</a></p>
-
-<?php
-  require 'signup.php';
 ?>
 
 <script src="js/index.js"></script>

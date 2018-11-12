@@ -13,3 +13,5 @@
         <button type="submit" name="login-submit">Login</button>
     </div>
 </form>
+
+<a href="./signup.php">Register</a>
