@@ -1,13 +1,24 @@
 <div id="signup-form" class="signup-form-hidden">
   <form action="includes/handlesignup.inc.php" method="post">
     <div>
-      <label for="signup-name">Name:</label>
-      <input type="text" name="signup-name" id="signup-name">
+      <label for="signup-fname">First name:</label>
+      <input type="text" name="signup-fname" id="signup-fname">
+    </div>
+
+    <div>
+      <label for="signup-lname">Last name:</label>
+      <input type="text" name="signup-lname" id="signup-lname">
     </div>
 
     <div>
       <label for="signup-email">E-Mail:</label>
       <input type="email" name="signup-email" id="signup-email">
+    </div>
+
+    <div>
+      <label for="signup-gender">Gender</label>
+      <input type="radio" name="signup-gender" value="male">Male
+      <input type="radio" name="signup-gender" value="female">Female
     </div>
 
     <div>

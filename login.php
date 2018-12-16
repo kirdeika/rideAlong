@@ -1,7 +1,7 @@
 <form action="includes/handlelogin.inc.php" method="post">
     <div>
-        <label for="login-name">Name:</label>
-        <input type="text" name="login-name" id="login-name">
+        <label for="login-email">E-Mail:</label>
+        <input type="text" name="login-email" id="login-email">
     </div>
 
     <div>
