@@ -1,4 +1,4 @@
 <?php
 
     require 'search.php';
-    //require 'post.php';
+    require 'post.php';

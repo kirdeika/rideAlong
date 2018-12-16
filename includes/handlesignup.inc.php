@@ -59,6 +59,7 @@ if(isset($_POST["signup-submit"])) {
                     header("Location: ../signup.php?signup=success");
                     exit();
                 }
+                
             }
         }
     }
