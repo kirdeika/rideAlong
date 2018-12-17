@@ -10,6 +10,8 @@
         ?>
     </div>
     <div class="main-wrapper_myaccount">
-    
+        <?php 
+            require 'myaccount.php';
+        ?>
     </div>
 </div>

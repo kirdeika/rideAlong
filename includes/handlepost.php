@@ -52,7 +52,7 @@ if(isset($_POST['post-submit'])) {
                     mysqli_stmt_bind_param($stmt, "ssssiii", $travelDate, $travelTime, $travelFrom, $travelTo, $travelPrice, $travelSeats, $userId);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
-                    header("Location: ../index.php?signup=successas" );
+                    header("Location: ../index.php?signup=success");
                     exit();
                 }
             }

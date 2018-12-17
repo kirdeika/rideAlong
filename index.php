@@ -25,8 +25,7 @@
 
 <h1>RideAlong</h1>
 
-<?php 
-echo $_SESSION['userId'] . " - " . $_SESSION['userEmail'];
+<?php
   if(!isset($_SESSION['userId'])) {
     header("Location: ./login.php");
   } else {
