@@ -7,7 +7,7 @@ if(isset($_POST['search-submit'])) {
     $travelTo = $_POST['travel-to'];
     $travelDate = $_POST['travel-date'];
 
-    $sql = "SELECT * FROM trips WHERE starting_place=? AND destination_place=?";
+    $sql = "SELECT * FROM trips WHERE trip_from=? AND trip_to=? ORDER BY trip_start_date";
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
@@ -19,7 +19,9 @@ if(isset($_POST['search-submit'])) {
         $result = mysqli_stmt_get_result($stmt);
 
         if($row = mysqli_fetch_assoc($result)) {
-            echo $row['starting_place'] . $row['destination_place'] . $row['travel_time'] . $row['travel_price'];
+            echo $row['trip_from'] . $row['trip_to'];
+
+            header("Location: ../index.php?trip_from=" . $row['trip_from'] . "&trip_to=" . $row['trip_to']);
         }
     }
 }

@@ -2,6 +2,7 @@
     <div class="main-wrapper_search">
         <?php 
             require 'search.php';
+            require 'searchdisplay.php'
         ?>
     </div>
     <div class="main-wrapper_post">
