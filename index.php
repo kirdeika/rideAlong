@@ -15,7 +15,7 @@
 
   <!-- <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css"> -->
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -26,6 +26,7 @@
 <h1>RideAlong</h1>
 
 <?php 
+echo $_SESSION['userId'] . " - " . $_SESSION['userEmail'];
   if(!isset($_SESSION['userId'])) {
     header("Location: ./login.php");
   } else {
@@ -39,8 +40,6 @@
     require 'logout.php'; 
   }
 ?>
-
-<script src="js/index.js"></script>
 </body>
 
 </html>

@@ -3,7 +3,7 @@
 if(isset($_POST['post-submit'])) {
     require 'dbh.inc.php';
 
-    $userId = $_SESSION["UserId"];
+    $userId = $_POST["traveld-userid"];
     $travelFrom = $_POST["traveld-from"];
     $travelTo = $_POST["traveld-to"];
     $travelDate = $_POST["traveld-date"];
@@ -12,7 +12,7 @@ if(isset($_POST['post-submit'])) {
     $travelSeats = $_POST["traveld-seats"];
 
     if(empty($travelFrom) || empty($travelTo) || empty($travelDate) || empty($travelTime) || empty($travelPrice) || empty($travelSeats)) {   //Empty field handling
-        header("Location: ../index.php?error=emptyFields");
+        header("Location: ../index.php?error=emptyFields" . $userId);
         exit();
     } elseif(!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$travelDate)) { //Invalid date format
         header("Location: ../index.php?error=invalidDate");
@@ -34,13 +34,13 @@ if(isset($_POST['post-submit'])) {
             header("Location: ../index.php?error=sqlerrorOne");
             exit();
         } else {
-            mysqli_stmt_bind_param($stmt, "s", $userId);
+            mysqli_stmt_bind_param($stmt, "i", $userId);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
             $resultCheck = mysqli_stmt_num_rows($stmt);
 
             if($resultCheck > 0) {          //Handle existing user trip
-                header("Location: ../index.php?error=emailAlreadyInUse");
+                header("Location: ../index.php?error=driverHasTrip");
                 exit();
             } else {
                 $sql = "INSERT INTO trips (trip_start_date, trip_start_time, trip_from, trip_to, price, seats, driver) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -49,11 +49,10 @@ if(isset($_POST['post-submit'])) {
                     header("Location: ../index.php?error=sqlerrorTwo");
                     exit();
                 } else {
-                    mysqli_stmt_bind_param($stmt, "sssssss", $travelDate, $travelTime, $travelFrom, $travelTo, $travelPrice, $travelSeats, $userId);
+                    mysqli_stmt_bind_param($stmt, "ssssiii", $travelDate, $travelTime, $travelFrom, $travelTo, $travelPrice, $travelSeats, $userId);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
-
-                    header("Location: ../index.php?signup=success");
+                    header("Location: ../index.php?signup=successas" );
                     exit();
                 }
             }

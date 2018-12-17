@@ -17,5 +17,7 @@
     <label for="traveld-seats">Seats</label>
     <input type="number" name="traveld-seats" id="traveld-seats"/>
 
+    <input type="hidden" name="traveld-userid" id="traveld-userid" value="<?php echo $_SESSION["userId"]; ?>"/>
+
     <button type="submit" name="post-submit">Submit</button>
 </form>
