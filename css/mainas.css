@@ -1,0 +1,60 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    background-color: #f9f9f9;
+}
+
+.main-wrapper_search, .main-wrapper_myaccount, .main-wrapper_post {
+    flex-grow: 1;
+    padding: 25px;
+    margin: 25px 0;
+}
+
+
+.main-wrapper_search, .main-wrapper_post {
+    border-right: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 15px 0 15px -12px rgba(0,0,0,0.1);
+}
+
+.main-wrapper_post > form, .main-wrapper_search > form, .main-wrapper_myaccount > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.myaccount_now-trips {
+    display: flex;
+    flex-direction: row;
+}
+
+.now-trips_date, .now-trips_from-to, .now-trips_price-seats, .now-trips_price-delete {
+    flex-grow: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+.search-results {
+    background-color: #ededed;
+    padding: 25px;
+}
+
+.search-results_result {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.search-results_result p {
+    flex: 1 0;
+    justify-self: center;
+    align-self: center;
+}

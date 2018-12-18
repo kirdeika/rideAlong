@@ -1,4 +1,4 @@
-<form action="includes/handlesearch.php" method="post">
+<form action="includes/handlesearch.inc.php" method="post">
     <label for="travel-from">From</label>
     <input type="text" name="travel-from" id="travel-from"/>
 

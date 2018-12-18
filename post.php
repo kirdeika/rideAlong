@@ -1,4 +1,4 @@
-<form action="includes/handlepost.php" method="post">
+<form action="includes/handlepost.inc.php" method="post">
     <label for="traveld-from">Where from are you traveling?</label>
     <input type="text" name="traveld-from" id="traveld-from"/>
 

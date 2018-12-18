@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2018 at 05:43 PM
+-- Generation Time: Dec 18, 2018 at 08:19 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -84,15 +84,22 @@ INSERT INTO `passanger` (`id`, `passenger_id`, `passenger_rating`, `p_trips_comp
 
 CREATE TABLE `trips` (
   `id` int(11) NOT NULL,
-  `trip_start_date` date NOT NULL,
-  `trip_start_time` time NOT NULL,
+  `trip_start_date` varchar(32) NOT NULL,
+  `trip_start_time` varchar(32) NOT NULL,
   `trip_from` varchar(32) NOT NULL,
   `trip_to` varchar(32) NOT NULL,
   `price` int(11) NOT NULL,
   `seats` int(11) NOT NULL,
-  `rating` int(11) NOT NULL,
+  `rating` int(11) DEFAULT NULL,
   `driver` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `trips`
+--
+
+INSERT INTO `trips` (`id`, `trip_start_date`, `trip_start_time`, `trip_from`, `trip_to`, `price`, `seats`, `rating`, `driver`) VALUES
+(4, '2019-01-01', '21:22', 'Kaunas', 'Vilnius', 21, 2, NULL, 23);
 
 -- --------------------------------------------------------
 
@@ -150,8 +157,8 @@ ALTER TABLE `passanger`
 --
 ALTER TABLE `trips`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `driver_id_constraint` (`driver`),
-  ADD KEY `driver_rating_constraint` (`rating`);
+  ADD KEY `driver_rating_constraint` (`rating`),
+  ADD KEY `driver_id` (`driver`);
 
 --
 -- Indexes for table `users`
@@ -179,7 +186,7 @@ ALTER TABLE `passanger`
 -- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -208,7 +215,7 @@ ALTER TABLE `passanger`
 -- Constraints for table `trips`
 --
 ALTER TABLE `trips`
-  ADD CONSTRAINT `driver_id_constraint` FOREIGN KEY (`driver`) REFERENCES `driver` (`driver_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `driver_id_constraint` FOREIGN KEY (`driver`) REFERENCES `driver` (`driver_id`),
   ADD CONSTRAINT `driver_rating_constraint` FOREIGN KEY (`rating`) REFERENCES `driver` (`driver_rating`) ON UPDATE CASCADE;
 COMMIT;
 

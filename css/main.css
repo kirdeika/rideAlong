@@ -1,9 +1,0 @@
-.main-wrapper {
-    display: flex;
-    flex-direction: row;
-}
-
-.main-wrapper_post > form, .main-wrapper_search > form, .main-wrapper_myaccount > form {
-    display: flex;
-    flex-direction: column;
-}

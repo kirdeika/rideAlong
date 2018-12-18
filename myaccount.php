@@ -35,4 +35,5 @@
         } else {
             echo "Nera kelioniu";
         }
+        exit();
     }
