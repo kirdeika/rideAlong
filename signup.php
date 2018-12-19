@@ -16,6 +16,11 @@
     </div>
 
     <div>
+      <label for="signup-phone">Phone number:</label>
+      <input type="number" name="signup-phone" id="signup-phone">
+    </div>
+
+    <div>
       <label for="signup-gender">Gender</label>
       <input type="radio" name="signup-gender" value="male">Male
       <input type="radio" name="signup-gender" value="female">Female
