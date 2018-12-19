@@ -37,7 +37,6 @@
     }
 
     require 'mainpage.php';
-    require 'logout.php'; 
   }
 ?>
 </body>

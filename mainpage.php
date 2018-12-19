@@ -1,5 +1,6 @@
 <div class="main-wrapper">
     <?php
+    require 'logout.php'; 
         if(isset($_GET['signForTrip'])) {
             echo '<div class="main-wrapper_notice">
                 <div class="notice-information">
