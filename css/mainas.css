@@ -58,3 +58,23 @@ body {
     justify-self: center;
     align-self: center;
 }
+
+.main-wrapper_notice {
+    position: absolute;
+    width: 50%;
+    background-color: lightblue;
+    text-align: center;
+    padding: 50px;
+    box-shadow: 0 10px 15px -5px rgba(0,0,0,0.2);
+    opacity: 1;
+    animation: hide-block 1s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes hide-block {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+    }
+}

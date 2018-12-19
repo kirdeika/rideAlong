@@ -21,6 +21,7 @@ $trip_date = $_GET['trip_date'];
         $queryResults = mysqli_num_rows($result);
 
         if($queryResults > 0) {
+            $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             echo '<div class="search-results">';
             while($row = mysqli_fetch_assoc($result)) {          //Handle existing user trip
                 echo '
@@ -30,7 +31,7 @@ $trip_date = $_GET['trip_date'];
                         <p>'. $row['trip_to'] .'</p>
                         <p>'. $row['price'] .'</p>
                         <p>'. $row['seats'] .'</p>
-                        <p><a href="?signForTrip= '. $row['driver'] .'">Registruotis</a></p>
+                        <p><a href="'. $link .'&signForTrip= '. $row['id'] .'">Registruotis</a></p>
                     </div>
                 ';
             }

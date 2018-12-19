@@ -45,7 +45,7 @@ if(isset($_POST["signup-submit"])) {
                 header("Location: ../signup.php?error=emailAlreadyInUse");
                 exit();
             } else {
-                $sql = "INSERT INTO users (f_name, l_name, email, gender, password) VALUES (?, ?, ?, ?, ?)";
+                $sql = "UPDATE `passanger` SET `trip_reserved` = ? WHERE `passanger`.`id` = ?";
                 $stmt = mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql)) {         //Handle sql error
                     header("Location: ../signup.php?error=sqlerrorTwo");

@@ -1,4 +1,14 @@
 <div class="main-wrapper">
+    <?php
+        if(isset($_GET['signForTrip'])) {
+            echo '<div class="main-wrapper_notice">
+                <div class="notice-information">
+                    You signed up for a trip!
+                </div>
+            </div>';
+            require 'includes/handleoptin.inc.php';
+        }
+    ?>
     <div class="main-wrapper_search">
         <h3>Search</h3>
         <?php 

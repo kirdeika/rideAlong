@@ -40,7 +40,6 @@
     require 'logout.php'; 
   }
 ?>
-aaa
 </body>
 
 </html>
