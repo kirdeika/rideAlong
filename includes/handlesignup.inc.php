@@ -12,29 +12,29 @@ if(isset($_POST["signup-submit"])) {
     require 'dbh.inc.php';
 
     if(empty($first_name) || empty($last_name) || empty($email) || empty($phone) || empty($gender) || empty($password) || empty($passwordRepeat)) {   //Empty field handling
-        header("Location: ../signup.php");
+        header("Location: ../index.php");
         exit();
     } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) { //Invalid email AND bad username handling
-        header("Location: ../signup.php");
+        header("Location: ../index.php");
         exit();
     } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {                                  //Invalid email handling
-        header("Location: ../signup.php");
+        header("Location: ../index.php");
         exit();
     } elseif(!preg_match("/^[a-zA-Z0-9]*$/", $first_name)) {                                  //Invalid username handling
-        header("Location: ../signup.php?error=invalidFName");
+        header("Location: ../index.php?error=invalidFName");
         exit();
     } elseif(!preg_match("/^[a-zA-Z0-9]*$/", $last_name)) {                                  //Invalid username handling
-        header("Location: ../signup.php?error=invalidLName");
+        header("Location: ../index.php?error=invalidLName");
         exit();
     } elseif($password !== $passwordRepeat) {                                               //Passwords do not match
-        header("Location: ../signup.php");
+        header("Location: ../index.php");
         exit();
     } else {
         $sql = "SELECT email FROM users WHERE email=?";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)) {         //Handle sql error
-            header("Location: ../signup.php?error=sqlerrorOne");
+            header("Location: ../index.php?error=sqlerrorOne");
             exit();
         } else {
             mysqli_stmt_bind_param($stmt, "s", $email);
@@ -43,13 +43,13 @@ if(isset($_POST["signup-submit"])) {
             $resultCheck = mysqli_stmt_num_rows($stmt);
 
             if($resultCheck > 0) {          //Handle existing username
-                header("Location: ../signup.php?error=emailAlreadyInUse");
+                header("Location: ../index.php?error=emailAlreadyInUse");
                 exit();
             } else {
                 $sql = "INSERT INTO users (f_name, l_name, email, phone, gender, password) VALUES (?, ?, ?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql)) {         //Handle sql error
-                    header("Location: ../signup.php?error=sqlerrorTwo");
+                    header("Location: ../index.php?error=sqlerrorTwo");
                     exit();
                 } else {
                     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -57,7 +57,7 @@ if(isset($_POST["signup-submit"])) {
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
 
-                    header("Location: ../signup.php?signup=success");
+                    header("Location: ../index.php?signup=success");
                     exit();
                 }
                         
@@ -69,6 +69,6 @@ if(isset($_POST["signup-submit"])) {
     mysqli_close($conn);
     
 } else {
-    header("Location: ../signup.php");
+    header("Location: ../index.php");
     exit();
 }

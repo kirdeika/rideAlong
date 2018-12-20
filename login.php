@@ -1,3 +1,4 @@
+<h3>Login</h3>
 <form action="includes/handlelogin.inc.php" method="post">
     <div>
         <label for="login-email">E-Mail:</label>
@@ -14,4 +15,6 @@
     </div>
 </form>
 
-<a href="./signup.php">Register</a>
+<?php 
+    require 'signup.php';
+?>

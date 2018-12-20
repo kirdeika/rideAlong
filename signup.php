@@ -1,3 +1,4 @@
+<h3>Registration</h3>
 <div id="signup-form" class="signup-form-hidden">
   <form action="includes/handlesignup.inc.php" method="post">
     <div>

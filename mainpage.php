@@ -1,5 +1,5 @@
-<div class="main-wrapper">
-    <?php
+<?php
+echo "<div class='main-wrapper'>";
     require 'logout.php'; 
         if(isset($_GET['signForTrip'])) {
             echo '<div class="main-wrapper_notice">
@@ -9,24 +9,17 @@
             </div>';
             require 'includes/handleoptin.inc.php';
         }
-    ?>
-    <div class="main-wrapper_search">
-        <h3>Search</h3>
-        <?php 
+    echo "<div class='main-wrapper_search'>";
+        echo '<h3>Search</h3>';
             require 'search.php';
-            require 'searchdisplay.php'
-        ?>
-    </div>
-    <div class="main-wrapper_post">
-        <h3>Post</h3>
-        <?php 
+            require 'searchdisplay.php';
+    echo '</div>';
+    echo "<div class='main-wrapper_post'>";
+        echo "<h3>Post</h3>";
             require 'post.php';
-        ?>
-    </div>
-    <div class="main-wrapper_myaccount">
-        <h3>My Account</h3>
-        <?php 
+    echo "</div>";
+    echo "<div class='main-wrapper_myaccount'>";
+        echo "<h3>My Account</h3>";
             require 'myaccount.php';
-        ?>
-    </div>
-</div>
+    echo "</div>";
+echo "</div>";  

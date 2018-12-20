@@ -25,10 +25,9 @@
   <![endif]-->
 
 <h1>RideAlong</h1>
-
 <?php
   if(!isset($_SESSION['userId'])) {
-    header("Location: ./login.php");
+    require 'login.php';
   } else {
 
     if(isset($_GET['login'])) {

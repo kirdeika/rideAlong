@@ -7,13 +7,13 @@ if(isset($_POST['login-submit'])) {
     $password = $_POST['login-password'];
 
     if(empty($email) || empty($password)) {
-        header("Location: ../login.php?error=emptyfields");
+        header("Location: ../index.php?error=emptyfields");
         exit();
     } else {
         $sql = "SELECT * FROM users WHERE email=?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../login.php?error=sqlerror");
+            header("Location: ../index.php?error=sqlerror");
             exit();
         } else {
             mysqli_stmt_bind_param($stmt, "s", $email);
@@ -24,7 +24,7 @@ if(isset($_POST['login-submit'])) {
                 $passCheck = password_verify($password, $row['password']);
 
                 if(!$passCheck) {
-                    header("Location: ../login.php?error=incorrectpass");
+                    header("Location: ../index.php?error=incorrectpass");
                     exit();
                 } elseif($passCheck) {  //Login success
                     session_start();
@@ -35,11 +35,11 @@ if(isset($_POST['login-submit'])) {
                     exit();
 
                 } else {    //In case verify function fails, we fall back not logging in
-                    header("Location: ../login.php?error=incorrectpass");
+                    header("Location: ../index.php?error=incorrectpass");
                     exit();
                 }
             } else {
-                header("Location: ../login.php?error=nosuchuser");
+                header("Location: ../index.php?error=nosuchuser");
                 exit();
             }
         }

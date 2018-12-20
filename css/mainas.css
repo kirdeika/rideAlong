@@ -4,6 +4,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 .main-wrapper {
@@ -12,6 +13,7 @@ body {
     width: 100%;
     justify-content: space-evenly;
     background-color: #f9f9f9;
+    padding: 50px 0;
 }
 
 .main-wrapper_search, .main-wrapper_myaccount, .main-wrapper_post {
