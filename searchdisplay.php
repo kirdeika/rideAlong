@@ -31,13 +31,17 @@ $trip_date = $_GET['trip_date'];
                         <p>'. $row['trip_to'] .'</p>
                         <p>'. $row['price'] .'</p>
                         <p>'. $row['seats'] .'</p>
-                        <p><a href="'. $link .'&signForTrip= '. $row['id'] .'">Registruotis</a></p>
+                        <p><a href="'. $link .'&signForTrip= '. $row['id'] .'">Register</a></p>
                     </div>
                 ';
             }
             echo '</div>';
         } else {
-            echo "Nera kelioniu";
+            echo '<div class="main-wrapper_notice">
+                <div class="notice-information">
+                    No trips found!
+                </div>
+            </div>';
         }
     }
 }

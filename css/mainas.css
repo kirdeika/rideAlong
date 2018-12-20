@@ -11,19 +11,40 @@ body {
 	width: 100%;
 
 }
+.login-form, #signup-form {
+    flex: 0 1 39%;
+}
+body * {
+	font-family: 'Roboto Mono', monospace;
+}
+
+.main-wrapper_notice {
+    position: absolute;
+    width: 50%;
+    background-color: white;
+    text-align: center;
+    color: black;
+    padding: 50px;
+    box-shadow: 0 10px 15px -5px rgba(0,0,0,0.2);
+    opacity: 1;
+    animation: hide-block 1s forwards;
+    animation-delay: 1s;
+}
+
 h1 {
-    font-family: 'open_sanscondensed_light';
-    font-size: 30px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 55px;
+    font-weight: 300;
     margin: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-transform: uppercase;
-	letter-spacing: 2px;
+    letter-spacing: 10px;
+	text-shadow: 3px 3px white;
 }
 input {
-    -webkit-appearance: none;
     width: 100%;
     border: 0;
-    font-family: inherit;
+    font-family: 'Roboto Mono', monospace;
     padding: 12px 0;
     height: 25px;
     font-size: 14px;
@@ -35,9 +56,12 @@ input {
     transition: all 0.15s ease;
 	margin: 0px 0px 10px 0px;
 }
-
+input:focus{
+	border: 2px solid white;
+	
+}
 label  {
-    font-family: 'open_sanscondensed_light';
+    font-family: 'Roboto Mono', monospace;
     font-size: 15px;
     margin: 10px 0px;
   
@@ -47,14 +71,16 @@ label  {
 
 h3  {
 	text-align: center;
-    font-family: 'open_sanscondensed_light';
+    font-family: 'Roboto Mono', monospace;
     font-size: 20px;
     margin: 0;
     margin-bottom: 30px;
     text-transform: uppercase;
 	letter-spacing: 1px;
+	font-weight: 300;
+	text-shadow: 3px 3px white;
 }
-.main-wrapper {
+.main-wrapper, .login-signup-wrapper {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -73,7 +99,7 @@ button{
     border: 2px solid #2c3e50;
     color: #2c3e50;
     display: block;
-    font-family: 'trebuchet ms';
+    font-family: 'open_sanscondensed_light';
     font-size: 18px;
     letter-spacing: 0.1rem;
     position: relative;
@@ -133,7 +159,7 @@ button:hover::before {
 }
 
 .search-results {
-    background-color: #ededed;
+    background-color: white;
     padding: 25px;
 }
 
@@ -149,21 +175,10 @@ button:hover::before {
     align-self: center;
 }
 
-.main-wrapper_notice {
-    position: absolute;
-    width: 50%;
-    background-color: lightblue;
-    text-align: center;
-    padding: 50px;
-    box-shadow: 0 10px 15px -5px rgba(0,0,0,0.2);
-    opacity: 1;
-    animation: hide-block 1s forwards;
-    animation-delay: 1s;
-}
 hr { 
 	width: 100px;
   display: block;
-  margin-top: 5px;
+  margin-top: 0px;
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -178,6 +193,7 @@ hr {
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
+	margin: 0px 0px 81px 0px;
 }
 
 .logout-wrapper {
@@ -185,6 +201,15 @@ hr {
     z-index: 9999;
     left: 1%;
     top: 1%;
+}
+.footer {
+   position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
 
 @keyframes hide-block {
@@ -194,7 +219,21 @@ hr {
         opacity: 0;
     }
 }
+.search-results_result a {
+    color: #08d8d5;
+}
 
+.profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9d6;
+    padding: 50px;
+    margin: 50px;
+}
+
+.profile-wrapper > form > input {
+    width: auto;
+}
 @media only screen and (max-width: 768px) {
     .main-wrapper {
         flex-direction: column;

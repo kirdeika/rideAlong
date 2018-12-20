@@ -38,6 +38,10 @@
     require 'mainpage.php';
   }
 ?>
+<div class="footer">
+  <p>VGTU, MKDf 16/1 <br>RideAlong</p>
+</div>
+
 </body>
 
 </html>

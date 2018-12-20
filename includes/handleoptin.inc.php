@@ -22,7 +22,11 @@ if(isset($_GET['signForTrip'])) {
         if($queryResults > 0) {
             $row = mysqli_fetch_assoc($result);
             if($row['trip_reserved'] != null) {
-                echo 'You already have trip registered!';
+                echo '<div class="main-wrapper_notice">
+                <div class="notice-information">
+                    You already have a trip registered!
+                </div>
+                </div>';
             } else {
                 $sql = "SELECT * FROM trips WHERE id=?";
                 $stmt = mysqli_stmt_init($conn);
@@ -49,14 +53,21 @@ if(isset($_GET['signForTrip'])) {
                                     mysqli_stmt_bind_param($stmt, "ii", $tripId, $userId);
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_store_result($stmt);
-                                    echo 'success';
                                 }
                             } else {
-                                echo 'Negalite registruotis i savo kelione!';
+                                echo '<div class="main-wrapper_notice">
+                                    <div class="notice-information">
+                                        Negalite registruotis i savo kelione!
+                                    </div>
+                                </div>';
                             }
                         }
                     } else {
-                        echo "Nera kelioniu";
+                        echo '<div class="main-wrapper_notice">
+                                    <div class="notice-information">
+                                        Nera kelioniu
+                                    </div>
+                                </div>';
                     }
                 }    
             }  

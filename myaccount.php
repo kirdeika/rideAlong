@@ -36,7 +36,7 @@ if(!mysqli_stmt_prepare($stmt, $sql)) {         //Handle sql error
             echo "</div>";
         echo "</div>";
     } else {
-        echo "Nera kelioniu";
+        echo "<p>You don't have any trips</p>";
     }
 }
 
@@ -79,7 +79,7 @@ if(!mysqli_stmt_prepare($stmt, $sql)) {         //Handle sql error
             echo "</div>";
         echo "</div>";
     } else {
-        echo "Nera kelioniu";
+        echo "You do not participate in any trips!";
     }
     exit();
 }

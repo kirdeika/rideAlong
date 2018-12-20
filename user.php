@@ -1,3 +1,20 @@
+<head>
+<title>RideAlong | User</title>
+<meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Cache-control" content="no-cache">
+
+  <!-- <link rel="manifest" href="site.webmanifest"> -->
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css"> -->
+  <link rel="stylesheet" href="css/mainas.css">
+</head>
+<body><div class="profile-wrapper">
 <?php
     session_start();
     if(isset($_GET['user'])) {
@@ -45,7 +62,7 @@
 
                 if($userId != $userProfileId) {
                     echo "<form action='' method='get'>
-                        <label for='votepassenger'>Passenger</label>
+                        <label for='votepassenger'>Passenger</label><br />
                         <input type='hidden' name='user' value='". $userProfileId ."'/>Up
                         <input type='radio' name='votepassenger' value='up'/>Up
                         <input type='radio' name='votepassenger' value='down'/>Down
@@ -79,7 +96,6 @@
                 mysqli_stmt_bind_param($stmt, "i", $userProfileId);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_store_result($stmt);
-                echo 'success';
             }
         }
         if(isset($_GET['votedriver'])) {
@@ -99,7 +115,10 @@
                 mysqli_stmt_bind_param($stmt, "i", $userProfileId);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_store_result($stmt);
-                echo 'success';
             }
         }
     }
+    ?>
+</div>
+<div><a href="." style="text-decoration: none;"><button>Go back</button></a></div>
+</body>
