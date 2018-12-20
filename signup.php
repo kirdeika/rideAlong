@@ -1,5 +1,5 @@
-<h3>Registration</h3>
 <div id="signup-form" class="signup-form-hidden">
+<h3>Registration</h3>
   <form action="includes/handlesignup.inc.php" method="post">
     <div>
       <label for="signup-fname">First name:</label>

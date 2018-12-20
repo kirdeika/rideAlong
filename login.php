@@ -1,3 +1,5 @@
+<div class="login-signup-wrapper">
+<div class="login-form">
 <h3>Login</h3>
 <form action="includes/handlelogin.inc.php" method="post">
     <div>
@@ -14,7 +16,9 @@
         <button type="submit" name="login-submit">Login</button>
     </div>
 </form>
+</div>
 
 <?php 
     require 'signup.php';
 ?>
+</div>

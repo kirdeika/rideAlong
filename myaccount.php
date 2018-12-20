@@ -28,7 +28,7 @@ if(!mysqli_stmt_prepare($stmt, $sql)) {         //Handle sql error
                 echo "<p>". $row['price'] ."</p>";
                 echo "<p>". $row['seats'] ."</p>";
             echo "</div>";
-            echo "<div class='now-trips_price-delete'>";
+            echo "<div class='now-trips_buttons-delete'>";
                 echo "<form action='includes/handledelete.inc.php' method='post'>
                 <input type='hidden' name='trip-id' value=". $row['id'] ." />
                 <button type='submit' name='now-trips_delete-trip' id='now-trips_delete-trip'>Delete</button>

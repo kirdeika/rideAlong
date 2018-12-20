@@ -23,7 +23,7 @@
   <!--[if lte IE 9]>
   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
-
+<img src="logo.png" alt="log" width="100" height="100" style="padding: 30px 0px;">
 <h1>RideAlong</h1>
 <?php
   if(!isset($_SESSION['userId'])) {
