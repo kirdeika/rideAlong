@@ -25,7 +25,7 @@
                     <p>Gender: ". $row['gender'] ."</p>
                 ";
 
-                $sql = "SELECT driver_rating, passenger_rating FROM driver, passanger WHERE driver_id=? AND passenger_id=?";
+                $sql = "SELECT driver_rating, trips_cancelled, p_trips_cancelled, passenger_rating FROM driver, passanger WHERE driver_id=? AND passenger_id=?";
                 $stmt = mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql)) {
                     header("Location: ../login.php?error=sqlerror");
@@ -38,6 +38,8 @@
                     if($row = mysqli_fetch_assoc($result)) {
                         echo "<p>Driver rating: ". $row['driver_rating'] ."</p>";
                         echo "<p>Passenger rating: ". $row['passenger_rating'] ."</p>";
+                        echo "<p>Drives cancelled: ". $row['trips_cancelled'] ."</p>";
+                        echo "<p>Trip registrations cancelled: ". $row['p_trips_cancelled'] ."</p>";
                     }
                 }
 
