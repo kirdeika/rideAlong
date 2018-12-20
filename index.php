@@ -38,10 +38,14 @@
     require 'mainpage.php';
   }
 ?>
+<div id="reklamaaaa">
+  <div class="reklama-wrapper">
+    <p>Your ad can be here!</p>
+  </div>
+</div>
 <div class="footer">
   <p>VGTU, MKDf 16/1 <br>RideAlong</p>
 </div>
-
 </body>
 
 </html>

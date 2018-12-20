@@ -234,6 +234,20 @@ hr {
 .profile-wrapper > form > input {
     width: auto;
 }
+
+#reklamaaaa {
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.reklama-wrapper {
+    padding: 50px;
+    background-color: white;
+    margin: 50px;
+    border: 1px solid black;
+    text-transform: uppercase;
+}
 @media only screen and (max-width: 768px) {
     .main-wrapper {
         flex-direction: column;

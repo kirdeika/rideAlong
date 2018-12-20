@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2018 at 10:32 AM
+-- Generation Time: Dec 20, 2018 at 06:23 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -45,9 +45,11 @@ CREATE TABLE `driver` (
 INSERT INTO `driver` (`id`, `driver_id`, `driver_rating`, `trips_completed`, `trips_cancelled`) VALUES
 (19, 23, 4, 0, 0),
 (20, 24, 0, 0, 0),
-(21, 25, 0, 0, 0),
+(21, 25, -1, 0, 0),
 (22, 26, 0, 0, 0),
-(23, 27, 0, 0, 2);
+(23, 27, 0, 0, 2),
+(24, 28, 0, 0, 0),
+(25, 29, 0, 0, 0);
 
 --
 -- Triggers `driver`
@@ -78,11 +80,13 @@ CREATE TABLE `passanger` (
 --
 
 INSERT INTO `passanger` (`id`, `passenger_id`, `passenger_rating`, `p_trips_completed`, `p_trips_cancelled`, `trip_reserved`) VALUES
-(13, 23, 1, 0, 0, NULL),
+(13, 23, 3, 0, 0, NULL),
 (14, 24, 0, 0, 0, NULL),
-(15, 25, 0, 0, 0, 4),
+(15, 25, 8, 0, 0, 4),
 (16, 26, 0, 0, 0, 9),
-(17, 27, 0, 0, 1, NULL);
+(17, 27, 0, 0, 1, NULL),
+(18, 28, 0, 0, 0, 4),
+(19, 29, 0, 0, 2, 9);
 
 -- --------------------------------------------------------
 
@@ -109,7 +113,9 @@ CREATE TABLE `trips` (
 INSERT INTO `trips` (`id`, `trip_start_date`, `trip_start_time`, `trip_from`, `trip_to`, `price`, `seats`, `rating`, `driver`) VALUES
 (4, '2019-01-01', '21:22', 'Kaunas', 'Vilnius', 21, 2, NULL, 23),
 (5, '2019-01-01', '12:00', 'Alytus', 'Marijampole', 5, 2, NULL, 23),
-(9, '2018-12-26', '12:21', 'Kaunas', 'Vilnius', 2, 4, NULL, 25);
+(9, '2018-12-26', '12:21', 'Kaunas', 'Vilnius', 2, 4, NULL, 25),
+(13, '2018-12-21', '19:00', 'Vilnius', 'Telsiai', 5, 2, NULL, 28),
+(14, '2018-12-21', '12:42', 'Klaipeda', 'Telsiai', 12, 1, NULL, 29);
 
 -- --------------------------------------------------------
 
@@ -136,7 +142,9 @@ INSERT INTO `users` (`id`, `f_name`, `l_name`, `email`, `phone`, `gender`, `pass
 (24, 'admin', 'admin', 'admin@admin.lt', 0, 'male', '$2y$10$YTTm633zy00WXXcXVZKjD.eNc2i9T2HrIaIBjUOnMttgFaDFA3T5G'),
 (25, 'Laurynas', 'Kirdeika', 'zirualsteam@gmail.com', 0, 'male', '$2y$10$nOQHU/uTdnfgWE5d0wiQxetRgKn/cqqvZZh5/QwYnv3fEeWpZlAmm'),
 (26, 'testas', 'Testauskas', 'testeris@test.lt', 861231231, 'male', '$2y$10$Vh4ygzuti6rFsuYdx7vSc.NSVlbk/fPSxNDn4mjOZvwQRXS0AgVBC'),
-(27, 'Gintare', 'Romeikaite', 'Gintare@starflix.lt', 861231231, 'male', '$2y$10$WvYvCawE4dc.citL6X/r/uSR/P7FOCvtuQirKomHtOo2kFV/FglLW');
+(27, 'Gintare', 'Romeikaite', 'Gintare@starflix.lt', 861231231, 'male', '$2y$10$WvYvCawE4dc.citL6X/r/uSR/P7FOCvtuQirKomHtOo2kFV/FglLW'),
+(28, 'Lina', 'Kunst', 'lina@kunst.lt', 86123123, 'female', '$2y$10$bwcZGzwd.s0ubmUrfsUeuu6nCUrWxfBSw6zQNIo./bq28ufBNXjFW'),
+(29, 'What', 'Is', 'vienas@du.lt', 123123123, 'male', '$2y$10$sx3WM0zvwfrjYvGjCCqHhev8xHqnE6LtBsgOrVA3uhOcQPngtNMfm');
 
 --
 -- Triggers `users`
@@ -189,25 +197,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `passanger`
 --
 ALTER TABLE `passanger`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables

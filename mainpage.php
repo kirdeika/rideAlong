@@ -22,4 +22,4 @@ echo "<div class='main-wrapper'>";
         echo "<h3>My Account</h3>";
             require 'myaccount.php';
     echo "</div>";
-echo "</div>";  
+echo "</div>";
