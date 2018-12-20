@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2018 at 08:30 AM
+-- Generation Time: Dec 20, 2018 at 10:32 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -43,11 +43,11 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`id`, `driver_id`, `driver_rating`, `trips_completed`, `trips_cancelled`) VALUES
-(19, 23, 0, 0, 0),
+(19, 23, 4, 0, 0),
 (20, 24, 0, 0, 0),
 (21, 25, 0, 0, 0),
 (22, 26, 0, 0, 0),
-(23, 27, 0, 0, 0);
+(23, 27, 0, 0, 2);
 
 --
 -- Triggers `driver`
@@ -78,11 +78,11 @@ CREATE TABLE `passanger` (
 --
 
 INSERT INTO `passanger` (`id`, `passenger_id`, `passenger_rating`, `p_trips_completed`, `p_trips_cancelled`, `trip_reserved`) VALUES
-(13, 23, 0, 0, 0, NULL),
+(13, 23, 1, 0, 0, NULL),
 (14, 24, 0, 0, 0, NULL),
 (15, 25, 0, 0, 0, 4),
 (16, 26, 0, 0, 0, 9),
-(17, 27, 0, 0, 0, NULL);
+(17, 27, 0, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -109,8 +109,7 @@ CREATE TABLE `trips` (
 INSERT INTO `trips` (`id`, `trip_start_date`, `trip_start_time`, `trip_from`, `trip_to`, `price`, `seats`, `rating`, `driver`) VALUES
 (4, '2019-01-01', '21:22', 'Kaunas', 'Vilnius', 21, 2, NULL, 23),
 (5, '2019-01-01', '12:00', 'Alytus', 'Marijampole', 5, 2, NULL, 23),
-(9, '2018-12-26', '12:21', 'Kaunas', 'Vilnius', 2, 4, NULL, 25),
-(10, '2018-12-25', '09:00', 'Vilnius', 'Palanga', 5, 3, NULL, 27);
+(9, '2018-12-26', '12:21', 'Kaunas', 'Vilnius', 2, 4, NULL, 25);
 
 -- --------------------------------------------------------
 
@@ -202,7 +201,7 @@ ALTER TABLE `passanger`
 -- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
