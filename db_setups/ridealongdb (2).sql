@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2018 at 08:19 AM
+-- Generation Time: Dec 20, 2018 at 08:30 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -43,7 +43,11 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`id`, `driver_id`, `driver_rating`, `trips_completed`, `trips_cancelled`) VALUES
-(19, 23, 0, 0, 0);
+(19, 23, 0, 0, 0),
+(20, 24, 0, 0, 0),
+(21, 25, 0, 0, 0),
+(22, 26, 0, 0, 0),
+(23, 27, 0, 0, 0);
 
 --
 -- Triggers `driver`
@@ -74,7 +78,11 @@ CREATE TABLE `passanger` (
 --
 
 INSERT INTO `passanger` (`id`, `passenger_id`, `passenger_rating`, `p_trips_completed`, `p_trips_cancelled`, `trip_reserved`) VALUES
-(13, 23, 0, 0, 0, NULL);
+(13, 23, 0, 0, 0, NULL),
+(14, 24, 0, 0, 0, NULL),
+(15, 25, 0, 0, 0, 4),
+(16, 26, 0, 0, 0, 9),
+(17, 27, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -99,7 +107,10 @@ CREATE TABLE `trips` (
 --
 
 INSERT INTO `trips` (`id`, `trip_start_date`, `trip_start_time`, `trip_from`, `trip_to`, `price`, `seats`, `rating`, `driver`) VALUES
-(4, '2019-01-01', '21:22', 'Kaunas', 'Vilnius', 21, 2, NULL, 23);
+(4, '2019-01-01', '21:22', 'Kaunas', 'Vilnius', 21, 2, NULL, 23),
+(5, '2019-01-01', '12:00', 'Alytus', 'Marijampole', 5, 2, NULL, 23),
+(9, '2018-12-26', '12:21', 'Kaunas', 'Vilnius', 2, 4, NULL, 25),
+(10, '2018-12-25', '09:00', 'Vilnius', 'Palanga', 5, 3, NULL, 27);
 
 -- --------------------------------------------------------
 
@@ -112,6 +123,7 @@ CREATE TABLE `users` (
   `f_name` varchar(32) NOT NULL,
   `l_name` varchar(32) NOT NULL,
   `email` varchar(32) NOT NULL,
+  `phone` int(11) NOT NULL,
   `gender` varchar(32) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -120,8 +132,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `f_name`, `l_name`, `email`, `gender`, `password`) VALUES
-(23, 'Laurynas', 'Kirdeika', 'laurynas@kirdeika.lt', 'male', '$2y$10$Vi1MGdS5gLSzm5Ke5JTVT.rt0PtJ5j.pY4ADlRoTjYPQ1Z.zcGN6i');
+INSERT INTO `users` (`id`, `f_name`, `l_name`, `email`, `phone`, `gender`, `password`) VALUES
+(23, 'Laurynas', 'Kirdeika', 'laurynas@kirdeika.lt', 0, 'male', '$2y$10$Vi1MGdS5gLSzm5Ke5JTVT.rt0PtJ5j.pY4ADlRoTjYPQ1Z.zcGN6i'),
+(24, 'admin', 'admin', 'admin@admin.lt', 0, 'male', '$2y$10$YTTm633zy00WXXcXVZKjD.eNc2i9T2HrIaIBjUOnMttgFaDFA3T5G'),
+(25, 'Laurynas', 'Kirdeika', 'zirualsteam@gmail.com', 0, 'male', '$2y$10$nOQHU/uTdnfgWE5d0wiQxetRgKn/cqqvZZh5/QwYnv3fEeWpZlAmm'),
+(26, 'testas', 'Testauskas', 'testeris@test.lt', 861231231, 'male', '$2y$10$Vh4ygzuti6rFsuYdx7vSc.NSVlbk/fPSxNDn4mjOZvwQRXS0AgVBC'),
+(27, 'Gintare', 'Romeikaite', 'Gintare@starflix.lt', 861231231, 'male', '$2y$10$WvYvCawE4dc.citL6X/r/uSR/P7FOCvtuQirKomHtOo2kFV/FglLW');
 
 --
 -- Triggers `users`
@@ -174,25 +190,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `passanger`
 --
 ALTER TABLE `passanger`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
